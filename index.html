@@ -1,0 +1,233 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bulma css template -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- model viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+  <title>
+    UltrAvatar
+  </title>
+  <link rel="icon" href="icon.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+   
+        
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/before_after.css">
+  <!-- <link rel="icon" href="./static/images/cameraicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <link rel="stylesheet" href="./static/css/magnify.css">
+  <script src="./static/js/jquery.magnify.js"></script>
+
+
+</head>
+
+<body>
+
+  <style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+    </style>
+
+  <section class="section">
+  <div class="container has-text-centered">
+    <!-- paper title -->
+    <p class="title is-3"> 🧙‍♂️ PromptAvatar: Text-Image Prompted Generation of 3D Animatable Avatars
+    </p>
+    <!-- publication -->
+    <!-- authors -->
+    <p class="title is-5 mt-2">  Anonymous AAAI Submission Paper ID 10093 Supplementary Material
+    </p>
+    <!-- affiliations -->
+    <!-- <p class="subtitle is-5">   
+    </p> -->
+
+
+    <!-- other links -->
+    <div class="is-flex is-justify-content-center">
+      <!-- <span class="icon-text mx-1">
+        <a class="button is-dark" href="" role="button" target="_blank"> <span class="icon"> <ion-icon name="document-outline"></ion-icon> </span> <span> Arxiv </span>  </a> 
+      </span> -->
+      <span class="icon-text mx-1">
+        <a class="button is-dark" href="https://anonymous.4open.science/r/PromptAvatar-B2F2/README.md" role="button" target="_blank"> <span class="icon"> <ion-icon name="logo-github"></ion-icon> </span> <span> Code </span> </a> 
+      </span>
+    </div>
+    <br>
+    <img class="summary-img" src="images/intro.jpg" style="width:100%;">
+    <!-- <video muted controls autoplay loop> <source src="" type="video/mp4"> </video>  -->
+    <!--video  width="100%" loop autoplay muted-->
+      <!--source src="animations/open.mp4" type="video/mp4"-->
+    <!--/video-->
+
+    <h1 style="text-align:center"><em> PromptAvatar generates realistic and animatable 3D avatars from a single text prompt, image, or both, compatible with 3D rendering engines like Blender. The top-left corner uses a text prompt to create an accurate texture UV-map and mesh. The bottom-left corner combines text with an SDXL V1.0-generated image to guide high-quality texture UV-map creation. When an image prompt is used, facial geometry is extracted via a pre-trained 3D face reconstruction network. On the right, image prompts enable detailed texture effects like crow’s feet and beards.</em></h3>
+  </div>
+
+  <!-- main container -->
+  <div class="container">
+
+    <!-- abstract -->
+    <p class="title is-3 mt-5 has-text-centered"> Abstract </p>
+    <p class="content is-size-6 has-text-left">
+      Recently, creating realistic and animatable 3D avatars through text or image prompts has drawn widespread attention. However, most of existing methods based on text input fall short in supporting fine-grained prompts due to their reliance on the Score Distillation Sampling (SDS) loss or CLIP for mapping text to images or 3D faces. Additionally, image-based approaches are severely limited by their dependence on expensive and scarce 3D facial data acquired through specialized equipment. These impact both model generalization and efficiency. To address these limitations, we introduce a novel, large-scale dataset comprising four modalities: detailed descriptions of facial attributes, face images captured in natural environments, high-quality texture UV maps, and facial shapes. Leveraging this dataset, we propose PromptAvatar, a framework integrating a texture diffusion model that supports multi-condition guidance from text or image prompts and a geometry diffusion model guided by text prompts. PromptAvatar can quickly generate an accurate and faithful 3D facial UV map and its geometry in seconds based on a text or image prompt, ensuring compatibility with existing rendering engines. Our extensive qualitative and quantitative experiments demonstrate the superior efficiency, diversity, and quality of PromptAvatar compared to existing methods. Additionally, we will release our dataset soon, fostering further advancements in this research.
+    </p>
+
+
+    <!-- <p class="title is-3 mt-5 has-text-centered"> Overview </p> -->
+
+    <!-- <img class="summary-img" src="Imgs/overview.png" style="width:100%;">
+    <br> -->
+
+    <p class="title is-3 mt-5 has-text-centered">Overview</p>
+
+    <img class="summary-img" src="images/data.jpg" style="width:100%;">
+    <p class="content is-size-6">Our dataset creation pipeline consists of three main modules: De-lighting and re-lighting face image generation, Incomplete UV-map correction and completion, and Identity coefficients estimation and facial attribute description.</p>
+    <img class="summary-img" src="images/pipeline.jpg" style="width:100%;">
+    <p class="content is-size-6">PromptAvatar comprises a Texture Diffusion Model (TDM) and a Geometry Diffusion Model (GDM). The former reconstructs high-quality texture maps guided by text or image prompts, while the latter restores geometric identity coefficients guided by text prompts. The text is embedded by CLIP's text encoder and injected into TDM and GDM through cross-attention. From the image prompts, we extract the incomplete textures, encode them via VAE along with $z_t$, and feed them to the UNet of TDM to predict the Gaussian noise.</p>
+    
+    <!-- results (videos) -->
+    <p class="title is-3 mt-5 has-text-centered"> Results </p>
+      <p class="content has-text-left is-size-6">
+        All generated avatars are rendered in Blender.
+      </p>
+      
+      <div class="content has-text-justified">
+      <h3 class="title is-4">Text to Avatar Generation</h3>
+      </div>
+   
+      <p class="content has-text-left is-size-6">
+        We directly use text prompts for TDM and GDM to generate textures and geometries respectively. To illustrate the generation quality, we relight each 3D avatar under various environment maps.
+      </p>
+
+      <img class="summary-img" src="images/t2a_1.jpg" style="width:100%;">
+      <p class="content is-size-6">Visual comparison with DreamFace and Describe3D. Our results demonstrate superior alignment with fine-grained text prompts (highlighted in red). For instance, in the first row, see the distribution of facial hair, eyebrow shape, and chin, and in the second row, see the facial shape, eye bags, and other features.</p>
+
+      <table class="table" style="height:100%;width:100%;">
+        <colgroup>
+          <col span="1" style="width: 33%;">
+          <col span="1" style="width: 33%;">
+          <col span="1" style="width: 33%;">
+        </colgroup>
+        <tbody>
+          <tr> 
+            <th> <img class="image" src="images/aerodynamics_workshop_2k.jpeg" style="width:100%;"> </th>
+            <th> <img class="image" src="" style="width:100%;"> </th>
+            <th> <img class="image" src="" style="width:100%;"> </th>
+          </tr>
+          <tr> 
+            <td><p>"A man in his 30s with a Caucasian appearance has olive skin, facial hair around the mouth, chin, and jawline, an oval face shape, straight eyebrows, a prominent nose with a rounded tip, and a round chin."</p></td>
+            <td><p>这是添加的文字</p></td>
+            <td><p>这是添加的文字</p></td>
+        </tr>
+          <tr> 
+            <th> <video muted controls autoplay loop> <source src="video_t2a/ae.mp4" type="video/mp4"> </video> </th>
+            <th> <video muted controls autoplay loop> <source src="" type="video/mp4"> </video> </th>
+            <th> <video muted controls autoplay loop> <source src="" type="video/mp4"> </video> </th>
+          </tr>
+      </table>
+
+
+    <div class="content has-text-justified">
+      <h3 class="title is-4">Image to Avatar Generation</h3>
+      </div>
+    
+    <p class="content has-text-left is-size-6">
+      We directly use image prompts for TDM to generate textures. The geometry is estimated by using Deep3D pre-trained based on HIFI3D++. To illustrate the generation quality, we relight each 3D avatar under various environment maps.
+    </p>
+
+    <img class="summary-img" src="images/i2a_1.jpeg" style="width:100%;">
+    <p class="content is-size-6">Visual comparison of the image-to-avatar methods. Each group consists of the original image, the re-lit PromptAvatar, and FFHQ-UV. It can be observed that our method is able to preserve more facial details and skin tone of the original image. Please zoom in for better visibility of the details.</p>
+
+
+      
+
+    <table class="table" style="height:100%;width:100%;">
+      <colgroup>
+        <col span="1" style="width: 33%;">
+        <col span="1" style="width: 33%;">
+        <col span="1" style="width: 33%;">
+      </colgroup>
+      <tbody>
+        <tr> 
+          <th> <img class="image" src="video_i2a/Einstein.jpg" style="width:100%;"> </th>
+          <th> <img class="image" src="" style="width:100%;"> </th>
+          <th> <img class="image" src="" style="width:100%;"> </th>
+        </tr>
+        <tr> 
+          <th> <video muted controls autoplay loop> <source src="video_i2a/Einstein.mp4" type="video/mp4"> </video> </th>
+          <th> <video muted controls autoplay loop> <source src="" type="video/mp4"> </video> </th>
+          <th> <video muted controls autoplay loop> <source src="" type="video/mp4"> </video> </th>
+        </tr>
+    </table>
+
+
+
+    <p class="title is-3 mt-5 has-text-centered"> Animation </p>
+    <p class="content has-text-centered is-size-5">
+      <video muted controls autoplay loop> <source src="" type="video/mp4"> </video> 
+      <video muted controls autoplay loop> <source src="" type="video/mp4"> </video> 
+    </p>
+    <br><br>
+
+
+  </section>
+
+
+
+
+
+  
+</body>
+
+
+<script>
+  var videos = document.getElementsByClassName("clickplay");
+  for (var i = 0; i < videos.length; i++) {
+    videos[i].addEventListener("click", function() {
+      this.play();
+    });
+    videos[i].addEventListener("ended", function() {
+      this.pause();
+      this.currentTime = 0;
+    });
+  }
+  
+  document.querySelectorAll('.info-container').forEach(function(container) {
+    container.addEventListener('mouseover', function() {
+      var infoText = container.querySelector('.info-text');
+      infoText.style.display = 'block';
+    });
+  
+    container.addEventListener('mouseout', function() {
+      var infoText = container.querySelector('.info-text');
+      infoText.style.display = 'none';
+    });
+  });
+</script>
+</html>
